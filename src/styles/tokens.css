@@ -1,26 +1,35 @@
 @import "tailwindcss";
 
-/* Tailwind v4 design tokens mapped from your legacy CSS
-   --color-blue-dark: #1b2a41
-   --color-orange:    #e27c25
-   --color-accent:    #f6c344
-   --color-success:   #1fd884
-   --color-danger:    #ed254e
-   --color-dark:      #162136
-   --color-light:     #f9fafb
-   --color-gray:      #949cac
-   --color-info:      #30bcf2
-   --color-warning:   #f7b32b
-*/
+:root {
+  color-scheme: light;
+
+    /* Brand Colors */
+    --color-blue-dark: #1b2a41;
+    --color-orange: #e27c25;
+
+    /* Standard Warnings And Things */
+    --color-accent: #f6c344;
+    --color-success: #1fd884;
+    --color-danger: #ed254e;
+    --color-info: #30bcf2;
+    --color-warning: #f7b32b;
+
+    /* Neutrals */
+    --color-dark: #162136;
+    --color-light: #f9fafb;
+    --color-gray: #949cac;
+    --color-white: #fff;
+}
+
 @theme {
   /* Brand */
-  --color-brand: #e27c25;            /* primary brand orange */
-  --color-brand-ink: #1b2a41;        /* dark blue brand text/accent */
-
+  --color-brand: var(--color-orange);
+  --color-brand-ink: var(--color-blue-dark);
+ 
   /* UI surfaces & text */
-  --color-bg: #0b0f14;
-  --color-surface: #0f172a;
-  --color-text: #f9fafb;
+  --color-bg: var(--color-light); /* page background */
+  --color-surface: var(--color-blue-dark); /* cards, navs, footers */
+  --color-text: var(--color-danger); /* main text */
 
   /* Status */
   --color-accent: #f6c344;
@@ -31,10 +40,6 @@
 
   /* Misc */
   --radius-xl: 1rem;
-}
-
-:root {
-  color-scheme: dark;
 }
 
 /* Base canvas */

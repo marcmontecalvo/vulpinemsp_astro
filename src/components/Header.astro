@@ -5,17 +5,19 @@ const nav = [
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' }
 ];
+import logoUrl from '../assets/brand/logo.svg';
 ---
-<header class="sticky top-0 z-50 border-b border-white/10 bg-surface/80 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-white/10 bg-surface backdrop-blur">
   <div class="container flex h-16 items-center justify-between gap-4">
     <a href="/" class="flex items-center gap-3">
       <div class="h-8 w-8 rounded-xl bg-[--color-brand]"></div>
+      <img id="navLogo" src={logoUrl.src} alt="Vulpine Solutions" class="h-8 w-auto" fetchpriority="high" />
       <span class="text-lg font-semibold tracking-tight">Vulpine Solutions</span>
     </a>
     <button class="md:hidden" aria-controls="site-nav" aria-expanded="false" data-menu-toggle>☰</button>
     <nav id="site-nav" aria-label="Main" class="hidden md:block">
       <ul class="flex items-center gap-6">
-        {nav.map((item) => (<li><a class="text-sm text-gray-300 hover:text-white" href={item.href}>{item.label}</a></li>))}
+        {nav.map((item ) => (<li><a class="text-sm text-gray-300 hover:text-white" href={item.href}>{item.label}</a></li>))}
       </ul>
     </nav>
   </div>
