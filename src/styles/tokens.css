@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Tailwind v4 design tokens mapped from your legacy CSS
+   --color-blue-dark: #1b2a41
+   --color-orange:    #e27c25
+   --color-accent:    #f6c344
+   --color-success:   #1fd884
+   --color-danger:    #ed254e
+   --color-dark:      #162136
+   --color-light:     #f9fafb
+   --color-gray:      #949cac
+   --color-info:      #30bcf2
+   --color-warning:   #f7b32b
+*/
+@theme {
+  /* Brand */
+  --color-brand: #e27c25;            /* primary brand orange */
+  --color-brand-ink: #1b2a41;        /* dark blue brand text/accent */
+
+  /* UI surfaces & text */
+  --color-bg: #0b0f14;
+  --color-surface: #0f172a;
+  --color-text: #f9fafb;
+
+  /* Status */
+  --color-accent: #f6c344;
+  --color-success: #1fd884;
+  --color-danger: #ed254e;
+  --color-info: #30bcf2;
+  --color-warning: #f7b32b;
+
+  /* Misc */
+  --radius-xl: 1rem;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+/* Base canvas */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+a:focus {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* Utilities */
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 text-base font-medium;
+  background: var(--color-brand);
+  color: #000; /* matches legacy brand button contrast on orange */
+}
+.btn-primary:hover { filter: brightness(1.05); }
+
+.container { @apply mx-auto max-w-7xl px-6; }

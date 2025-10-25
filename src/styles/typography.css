@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+@layer base {
+  h1 { @apply text-4xl/tight md:text-5xl font-semibold; }
+  h2 { @apply text-3xl md:text-4xl font-semibold; }
+  h3 { @apply text-2xl font-semibold; }
+  p  { @apply text-base/7 text-gray-300; }
+}

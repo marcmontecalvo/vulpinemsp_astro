@@ -1,0 +1,40 @@
+{% extends "../layout.njk" %}
+
+{% block content %}
+  <p><a href="/blog/" class="btn btn-sm btn-outline-secondary">← Back to all posts</a></p>
+  <article>
+    <header class="mb-3">
+      <h1 class="mb-1">{{ title }}</h1>
+      <p class="small text-muted">
+        <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+      </p>
+      {% set clean = (tags or []) | removeSysTags %}
+      {% if clean and clean.length %}
+        <div class="tags mb-2">{% for t in clean %}<span class="tag-badge">{{ t }}</span>{% endfor %}</div>
+      {% endif %}
+    </header>
+
+    {{ content | safe }}
+
+    {% set related = collections.posts | relatedPosts(page) %}
+    {% if related and related.length %}
+      <hr>
+      <h3>Related articles</h3>
+      <div class="row">
+        {% for r in related %}
+          <div class="col-md-4 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title"><a href="{{ r.url }}">{{ r.data.title }}</a></h5>
+                <p class="card-text small text-muted">
+                  <time datetime="{{ r.date | htmlDateString }}">{{ r.date | readableDate }}</time>
+                </p>
+                {% if r.data.summary %}<p class="card-text">{{ r.data.summary }}</p>{% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </article>
+{% endblock %}

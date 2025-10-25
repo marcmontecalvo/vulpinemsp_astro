@@ -1,2 +1,3 @@
-# vulpinemsp_astro
-Vulpine Solution's website in Astro format
+# Vulpine Solutions — Astro + Tailwind
+
+Run `pnpm install` then `pnpm dev` to start.

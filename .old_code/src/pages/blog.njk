@@ -1,0 +1,14 @@
+---
+layout: layout.njk
+title: Blog - Vulpine Solutions
+permalink: /blog/
+---
+
+
+{% extends "layout.njk" %}
+
+{% block content %}
+  <h1 class="text-center mb-2">Insights from Vulpine Solutions</h1>
+  <p class="text-center text-muted">Smart IT. Silent Security.</p>
+  {% include "blog/postslist.njk" %}
+{% endblock %}

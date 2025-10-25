@@ -1,0 +1,21 @@
+{% macro item(post) %}
+<article class="mb-4">
+  <h2 class="h5 mb-1"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+  <p class="small text-muted mb-2">
+    <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+  </p>
+  {% if post.data.summary %}<p class="mb-2">{{ post.data.summary }}</p>{% endif %}
+  {% set t = post.data.tags | removeSysTags %}
+  {% if t and t.length %}
+    <div class="tags">{% for x in t %}<span class="tag-badge">{{ x }}</span>{% endfor %}</div>
+  {% endif %}
+</article>
+{% endmacro %}
+
+<div>
+  {% for post in collections.posts %}
+    {{ self.item(post) }}
+  {% else %}
+    <p class="text-muted">No posts yet.</p>
+  {% endfor %}
+</div>
